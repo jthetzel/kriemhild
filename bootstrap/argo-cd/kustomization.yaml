@@ -3,3 +3,4 @@ kind: Kustomization
 namespace: argocd
 resources:
 - github.com/jthetzel/kriemhild/manifests?ref=main
+- applicationset-crd.yaml
