@@ -11,3 +11,12 @@ patches:
       kind: CustomResourceDefinition
       metadata:
         name: applicationsets.argoproj.io
+  # allow kustomize apps to inflate Helm charts (used by apps/traefik)
+  - target:
+      version: v1
+      kind: ConfigMap
+      name: argocd-cm
+    patch: |-
+      - op: add
+        path: /data/kustomize.buildOptions
+        value: --enable-helm

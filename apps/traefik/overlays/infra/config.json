@@ -1,0 +1,11 @@
+{
+  "appName": "traefik",
+  "userGivenName": "traefik",
+  "destNamespace": "kube-system",
+  "destServer": "https://kubernetes.default.svc",
+  "srcPath": "apps/traefik/overlays/infra",
+  "srcRepoURL": "https://github.com/jthetzel/kriemhild.git",
+  "srcTargetRevision": "",
+  "labels": null,
+  "annotations": null
+}
