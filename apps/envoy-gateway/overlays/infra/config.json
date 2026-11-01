@@ -1,0 +1,11 @@
+{
+  "appName": "envoy-gateway",
+  "userGivenName": "envoy-gateway",
+  "destNamespace": "envoy-gateway-system",
+  "destServer": "https://kubernetes.default.svc",
+  "srcPath": "apps/envoy-gateway/overlays/infra",
+  "srcRepoURL": "https://github.com/jthetzel/kriemhild.git",
+  "srcTargetRevision": "",
+  "labels": null,
+  "annotations": null
+}
