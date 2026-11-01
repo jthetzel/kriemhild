@@ -1,0 +1,11 @@
+{
+  "appName": "hello-world",
+  "userGivenName": "hello-world",
+  "destNamespace": "hello-world",
+  "destServer": "https://kubernetes.default.svc",
+  "srcPath": "apps/hello-world/overlays/infra",
+  "srcRepoURL": "https://github.com/jthetzel/kriemhild.git",
+  "srcTargetRevision": "",
+  "labels": null,
+  "annotations": null
+}
