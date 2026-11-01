@@ -1,0 +1,49 @@
+# Secret `porkbun-secret` (keys PORKBUN_API_KEY, PORKBUN_SECRET_API_KEY) is created out of band
+# in the cert-manager namespace; not stored in Git.
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-staging
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+spec:
+  acme:
+    server: https://acme-staging-v02.api.letsencrypt.org/directory
+    privateKeySecretRef:
+      name: letsencrypt-staging-account-key
+    solvers:
+      - dns01:
+          webhook:
+            groupName: acme.daphnai.com
+            solverName: porkbun
+            config:
+              apiKey:
+                key: PORKBUN_API_KEY
+                name: porkbun-secret
+              secretApiKey:
+                key: PORKBUN_SECRET_API_KEY
+                name: porkbun-secret
+---
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-prod
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+spec:
+  acme:
+    server: https://acme-v02.api.letsencrypt.org/directory
+    privateKeySecretRef:
+      name: letsencrypt-prod-account-key
+    solvers:
+      - dns01:
+          webhook:
+            groupName: acme.daphnai.com
+            solverName: porkbun
+            config:
+              apiKey:
+                key: PORKBUN_API_KEY
+                name: porkbun-secret
+              secretApiKey:
+                key: PORKBUN_SECRET_API_KEY
+                name: porkbun-secret

@@ -1,0 +1,15 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: envoy-gateway-tls
+  namespace: envoy-gateway-system
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+spec:
+  secretName: envoy-gateway-tls
+  issuerRef:
+    kind: ClusterIssuer
+    name: letsencrypt-staging # switch to letsencrypt-prod once staging issues successfully
+  dnsNames:
+    - home.daphnai.com
+    - "*.home.daphnai.com"

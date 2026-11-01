@@ -1,2 +1,3 @@
 # kustomize helm inflation cache
 charts/
+porkbun-secrets.txt

@@ -28,10 +28,24 @@ spec:
     - name: https
       protocol: HTTPS
       port: 443
+      hostname: "*.home.daphnai.com"
       tls:
         mode: Terminate
         certificateRefs:
-          # Self-signed Secret created out of band; not stored in Git.
+          # Issued by cert-manager (see certificate.yaml).
+          - group: ""
+            kind: Secret
+            name: envoy-gateway-tls
+      allowedRoutes:
+        namespaces:
+          from: All
+    - name: https-apex
+      protocol: HTTPS
+      port: 443
+      hostname: home.daphnai.com
+      tls:
+        mode: Terminate
+        certificateRefs:
           - group: ""
             kind: Secret
             name: envoy-gateway-tls

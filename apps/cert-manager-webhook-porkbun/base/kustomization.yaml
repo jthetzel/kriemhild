@@ -1,0 +1,21 @@
+resources:
+  - clusterissuer.yaml
+helmGlobals:
+  # Chart is vendored (pabloa publishes no Helm repo); the default "charts/" dir is gitignored.
+  chartHome: vendor
+helmCharts:
+  - name: cert-manager-webhook-porkbun
+    releaseName: cert-manager-webhook-porkbun
+    namespace: cert-manager
+    valuesInline:
+      groupName: acme.daphnai.com
+      image:
+        tag: "1.1.3"
+patches:
+  # The chart's own Issuer/Certificate need cert-manager CRDs, which come from another Argo app.
+  - target:
+      group: cert-manager.io
+    patch: |-
+      - op: add
+        path: /metadata/annotations/argocd.argoproj.io~1sync-options
+        value: SkipDryRunOnMissingResource=true
