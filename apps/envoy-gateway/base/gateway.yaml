@@ -32,7 +32,9 @@ spec:
         mode: Terminate
         certificateRefs:
           # Self-signed Secret created out of band; not stored in Git.
-          - name: envoy-gateway-tls
+          - group: ""
+            kind: Secret
+            name: envoy-gateway-tls
       allowedRoutes:
         namespaces:
           from: All
