@@ -9,7 +9,7 @@ spec:
   secretName: envoy-gateway-tls
   issuerRef:
     kind: ClusterIssuer
-    name: letsencrypt-staging # switch to letsencrypt-prod once staging issues successfully
+    name: letsencrypt-prod
   dnsNames:
     - home.daphnai.com
     - "*.home.daphnai.com"
