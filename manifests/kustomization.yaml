@@ -11,7 +11,7 @@ patches:
       kind: CustomResourceDefinition
       metadata:
         name: applicationsets.argoproj.io
-  # allow kustomize apps to inflate Helm charts (used by apps/traefik)
+  # allow kustomize apps to inflate Helm charts
   - target:
       version: v1
       kind: ConfigMap
